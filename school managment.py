@@ -101,7 +101,9 @@ while True:
         elif cmd == 3:
                 pass
         elif cmd == 4:
-                pass
+              id=input(int("id:"))       
+              s1=Student(id,"","")
+              sc1.student.remove(s1)
         elif cmd == 5:
                 pass
         elif cmd == 0:
@@ -126,7 +128,9 @@ while True:
             elif cmd == 3:
                 pass
             elif cmd == 4:
-                pass
+                id=input(int("id:"))
+                t1=Teacher(id,"","")
+                sc1.teachers.remove(t1)
             elif cmd == 5:
                 pass
             elif cmd == 0:
@@ -149,7 +153,11 @@ while True:
             elif cmd == 3:
                 pass
             elif cmd == 4:
-                pass
+                id=input(int("id:"))
+                c1=Course(id,"","")
+                sc1.courses.remove(c1)
             elif cmd == 0:
                     level ="root"    
-    
+
+
+           
