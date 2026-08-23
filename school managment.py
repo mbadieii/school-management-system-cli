@@ -60,6 +60,18 @@ class School:
     def __init__(self,name):
         self.name=name
 
+    def show_students(self):
+        for student in self.students:
+            print(student)
+         
+
+    def show_teachers(self):
+         for teacher in self.teachers:
+            print(teacher) 
+
+    def show_courses(self):
+        for course in self.courses:
+            print(course)
 
 sc1=School("sama")
 
@@ -96,8 +108,9 @@ while True:
         print("0. back")
         cmd =int(input(">>:"))
         if cmd == 1:
-                for student in sc1.students:
-                     print(student)
+             sc1.show_students()
+                #for student in sc1.students:
+                     #print(student)
         elif cmd == 2:
                 id=int(input("id :"))
                 name=input("name :")
@@ -123,8 +136,9 @@ while True:
             print("0. back")
             cmd =int(input(">>:"))
             if cmd == 1:
-                 for teacher in sc1.teachers:
-                      print(teacher)
+                 sc1.show_teachers()
+                 #for teacher in sc1.teachers:
+                      #print(teacher)
             elif cmd == 2:
                 id=int(input("id :"))
                 name=input("name :")
@@ -150,8 +164,9 @@ while True:
             print("0. back")
             cmd =int(input(">>:"))
             if cmd == 1:
-                for course in sc1.course:
-                     print(course)
+                 sc1.show_courses()
+                #for course in sc1.course:
+                    #print(course)
             elif cmd == 2:
                 id=int(input("id :"))
                 name=input("name :")
