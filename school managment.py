@@ -7,6 +7,8 @@ class  Course:
         self.id=id
         self.name=name
         self.units=units
+    def __str__(self):
+         return f"id:{self.id},name:{self.name},units:{self.units}"
     
 class Student:
     id:int=0
@@ -18,8 +20,9 @@ class Student:
             self.id=id
             self.name=name
             self.family=family
-        
 
+    def __str__(self):
+        return f"id:{self.id},name:{self.name},family:{self.family}"
 
 
 class Teacher:
@@ -34,6 +37,8 @@ class Teacher:
         self.name=name
         self.family=family
         self.grade=grade
+    def __str__(self):
+         return f"id:{self.id},name:{self.name},family:{self.family},grade:{self.grade}"
 
 
 class Classroom:
@@ -91,7 +96,8 @@ while True:
         print("0. back")
         cmd =int(input(">>:"))
         if cmd == 1:
-                pass
+                for student in sc1.students:
+                     print(student)
         elif cmd == 2:
                 id=int(input("id :"))
                 name=input("name :")
@@ -117,7 +123,8 @@ while True:
             print("0. back")
             cmd =int(input(">>:"))
             if cmd == 1:
-                pass
+                 for teacher in sc1.teachers:
+                      print(teacher)
             elif cmd == 2:
                 id=int(input("id :"))
                 name=input("name :")
@@ -143,7 +150,8 @@ while True:
             print("0. back")
             cmd =int(input(">>:"))
             if cmd == 1:
-                pass
+                for course in sc1.course:
+                     print(course)
             elif cmd == 2:
                 id=int(input("id :"))
                 name=input("name :")
