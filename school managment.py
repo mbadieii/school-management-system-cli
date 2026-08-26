@@ -8,7 +8,10 @@ class  Course:
         self.name=name
         self.units=units
     def __str__(self):
-         return f"id:{self.id},name:{self.name},units:{self.units}"
+        return f"id:{self.id},name:{self.name},units:{self.units}"
+
+    def __eq__(self, other):
+        return self.id==other.id
     
 class Student:
     id:int=0
@@ -23,6 +26,10 @@ class Student:
 
     def __str__(self):
         return f"id:{self.id},name:{self.name},family:{self.family}"
+
+    def __eq__(self, other):
+        return self.id==other.id
+         
 
 
 class Teacher:
@@ -40,7 +47,9 @@ class Teacher:
     def __str__(self):
          return f"id:{self.id},name:{self.name},family:{self.family},grade:{self.grade}"
 
-
+    def __eq__(self, other):
+        return self.id==other.id
+    
 class Classroom:
     id:int=0
     name:str=""
@@ -73,6 +82,25 @@ class School:
         for course in self.courses:
             print(course)
 
+    def add_student(self,s):
+        if  s in self.students:
+             print("already exist")
+        else:
+            self.students.append(s)
+
+    def add_teacher(self,t):
+        if t in self.teachers:
+            print("already exist")
+        else:
+            self.teachers.append(t)   
+
+    def add_course(self,c):
+        if c in self.courses:
+            print("already exist")
+        else:
+            self.courses.append(c)
+
+    
 sc1=School("sama")
 
 
@@ -116,7 +144,7 @@ while True:
                 name=input("name :")
                 family=input("family :")
                 s1=Student(id,name,family)
-                sc1.students.append(s1)
+                sc1.add_student(s1)
         elif cmd == 3:
                 pass
         elif cmd == 4:
@@ -145,7 +173,7 @@ while True:
                 family=input("family :")
                 grade=input("grade :")
                 t1=Teacher(id,name,family,grade)
-                sc1.teachers.append(t1)
+                sc1.add_teacher(t1)
             elif cmd == 3:
                 pass
             elif cmd == 4:
@@ -172,7 +200,7 @@ while True:
                 name=input("name :")
                 units=input("units :")
                 c1=Course(id,name,units)
-                sc1.courses.append(c1)
+                sc1.add_course(c1)
             elif cmd == 3:
                 pass
             elif cmd == 4:
