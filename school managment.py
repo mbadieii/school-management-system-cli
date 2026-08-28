@@ -11,7 +11,12 @@ class  Course:
         return f"id:{self.id},name:{self.name},units:{self.units}"
 
     def __eq__(self, other):
-        return self.id==other.id
+            if isinstance(other,int):
+                return self.id==other
+            elif isinstance (other,Teacher):
+                return self.id==other.id
+            
+            return False
     
 class Student:
     id:int=0
@@ -28,8 +33,12 @@ class Student:
         return f"id:{self.id},name:{self.name},family:{self.family}"
 
     def __eq__(self, other):
-        return self.id==other.id
-         
+        if isinstance(other,int):
+            return self.id==other
+        elif isinstance (other,Student):
+            return self.id==other.id
+        
+        return False
 
 
 class Teacher:
@@ -48,7 +57,12 @@ class Teacher:
          return f"id:{self.id},name:{self.name},family:{self.family},grade:{self.grade}"
 
     def __eq__(self, other):
-        return self.id==other.id
+        if isinstance(other,int):
+            return self.id==other
+        elif isinstance (other,Teacher):
+            return self.id==other.id
+        
+        return False
     
 class Classroom:
     id:int=0
@@ -100,7 +114,26 @@ class School:
         else:
             self.courses.append(c)
 
+    def delete_student(self,id):
+        if id not in self.students:
+            print("dosent exist")
+        else:
+            self.students.remove(id)
     
+    def delete_teacher(self,id):
+        if id not in self.teachers:
+              print("dosent exist")
+        else:
+             self.teachers.remove(id)
+    def delete_course(self):
+        if id not in self.courses:
+              print("dosent exist")  
+        else:
+              self.courses.remove(id)
+           
+
+
+
 sc1=School("sama")
 
 
@@ -149,8 +182,9 @@ while True:
                 pass
         elif cmd == 4:
               id=input(int("id:"))       
-              s1=Student(id,"","")
-              sc1.student.remove(s1)
+              sc1.delete_student(id)
+              #s1=Student(id,"","")
+              #sc1.student.remove(s1)
         elif cmd == 5:
                 pass
         elif cmd == 0:
