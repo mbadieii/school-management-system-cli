@@ -131,7 +131,12 @@ class School:
         else:
               self.courses.remove(id)
            
-
+    #def edit_student(self,id):
+        #if  id not in  self.students:
+              #print("dosent exist")
+        #else:
+            # self.students.index(id)
+              
 
 
 sc1=School("sama")
@@ -179,7 +184,13 @@ while True:
                 s1=Student(id,name,family)
                 sc1.add_student(s1)
         elif cmd == 3:
-                pass
+                id=int(input("id:"))
+                name=input("name:")
+                family=input("family:")
+                k=sc1.students.index(id)
+                sc1.students[k].name=name
+                sc1.students[k].family=family
+
         elif cmd == 4:
               id=input(int("id:"))       
               sc1.delete_student(id)
@@ -209,7 +220,14 @@ while True:
                 t1=Teacher(id,name,family,grade)
                 sc1.add_teacher(t1)
             elif cmd == 3:
-                pass
+                id=int(input("id:"))
+                name=input("name:")
+                family=input("family:")
+                grade=input("grade:")
+                t=sc1.teachers.index(id)
+                sc1.teachers[t].name=name
+                sc1.teachers[t].family=family
+                sc1.teachers[t].grade=grade
             elif cmd == 4:
                 id=input(int("id:"))
                 t1=Teacher(id,"","")
@@ -232,11 +250,16 @@ while True:
             elif cmd == 2:
                 id=int(input("id :"))
                 name=input("name :")
-                units=input("units :")
+                units=int(input("units :"))
                 c1=Course(id,name,units)
                 sc1.add_course(c1)
             elif cmd == 3:
-                pass
+                id=int(input("id:"))
+                name=input("name:")
+                units=int(input("units:"))
+                k=sc1.courses.index(id)
+                sc1.courses[k].name=name
+                sc1.courses[k].units=units
             elif cmd == 4:
                 id=input(int("id:"))
                 c1=Course(id,"","")
