@@ -131,14 +131,30 @@ class School:
         else:
               self.courses.remove(id)
            
-    #def edit_student(self,id):
-        #if  id not in  self.students:
-              #print("dosent exist")
-        #else:
-            # self.students.index(id)
-              
+    def edit_student(self,id,name,family):
+        if  id not in  self.students:
+              print("dosent exist")
+        else:
+            k=self.students.index(id)
+            self.students[k].name=name
+            self.students[k].family=family
+            
+    def edit_teacher(self,id,name,family,grade):
+        if id not in self.teacher:
+            print("dosent exist")
+        else:
+            k=self.teachers.index(id)
+            self.teachers[k].name=name
+            self.teachers[k].family=family
+            self.teachers[k].grade=grade
 
-
+    def edit_course(self,id,name,units):
+        if id not in self.courses:
+            print("dosent exist")
+        else:
+            k=self.courses.index(id)
+            self.teachers[k].name=name
+            self.teachers[k].units=units
 sc1=School("sama")
 
 
@@ -187,9 +203,11 @@ while True:
                 id=int(input("id:"))
                 name=input("name:")
                 family=input("family:")
-                k=sc1.students.index(id)
-                sc1.students[k].name=name
-                sc1.students[k].family=family
+                sc1.edit_student(id,name,family)
+
+                #k=sc1.students.index(id)
+                #3sc1.students[k].name=name
+                #sc1.students[k].family=family
 
         elif cmd == 4:
               id=input(int("id:"))       
@@ -224,10 +242,11 @@ while True:
                 name=input("name:")
                 family=input("family:")
                 grade=input("grade:")
-                t=sc1.teachers.index(id)
-                sc1.teachers[t].name=name
-                sc1.teachers[t].family=family
-                sc1.teachers[t].grade=grade
+                sc1.edit_teacher(id,name,family,grade)
+                #t=sc1.teachers.index(id)
+                #sc1.teachers[t].name=name
+                #sc1.teachers[t].family=family
+                #sc1.teachers[t].grade=grade
             elif cmd == 4:
                 id=input(int("id:"))
                 t1=Teacher(id,"","")
@@ -257,9 +276,10 @@ while True:
                 id=int(input("id:"))
                 name=input("name:")
                 units=int(input("units:"))
-                k=sc1.courses.index(id)
-                sc1.courses[k].name=name
-                sc1.courses[k].units=units
+                sc1.edit_course(id,name,units)
+                #k=sc1.courses.index(id)
+                #sc1.courses[k].name=name
+                #sc1.courses[k].units=units
             elif cmd == 4:
                 id=input(int("id:"))
                 c1=Course(id,"","")
